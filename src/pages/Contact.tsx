@@ -2,8 +2,23 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+
+const containerStyle = {
+  width: "100%",
+  height: "256px",
+};
+
+const center = {
+  lat: 6.617234, // Replace with your restaurant's latitude
+  lng: 3.35445, // Replace with your restaurant's longitude
+};
 
 const Contact = () => {
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+  });
+
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
@@ -38,6 +53,8 @@ const Contact = () => {
     )}`;
     window.open(whatsappUrl, "_blank");
   };
+
+  if (!isLoaded) return <div>Loading Map...</div>;
 
   return (
     <div className="min-h-screen py-12">
@@ -111,21 +128,15 @@ const Contact = () => {
 
           {/* Map and Additional Info */}
           <div className="space-y-8">
-            {/* Location Map Placeholder */}
+            {/* Google Map */}
             <Card className="overflow-hidden">
-              <div className="h-64 bg-gradient-to-br from-restaurant-cream to-restaurant-gold/20 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-12 w-12 text-restaurant-warm mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    Visit Our Restaurant
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Old RADLAG Water Building 1, Lateef Jakande Road
-                    <br />
-                    Agidingbi, Ikeja
-                  </p>
-                </div>
-              </div>
+              <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={15}
+              >
+                <Marker position={center} />
+              </GoogleMap>
             </Card>
 
             {/* Additional Information */}
