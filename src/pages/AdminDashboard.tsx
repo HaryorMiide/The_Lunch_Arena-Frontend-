@@ -189,7 +189,7 @@ export default function AdminDashboard() {
             ? logResponse.data.logs.length
             : 0,
         });
-      } catch (error: any) {
+      } catch (error) {
         console.error("Fetch error:", error.message);
         if (error.response?.status === 401) {
           alert("Session expired. Please log in again.");
@@ -274,7 +274,7 @@ export default function AdminDashboard() {
       resetFoodForm();
       setIsAdding(false);
       setEditing(null);
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error handling food:", error);
       alert(error.response?.data?.message || "Failed to handle food item.");
     }
@@ -289,7 +289,7 @@ export default function AdminDashboard() {
         }
       );
       setMenuItems(menuItems.filter((item) => item.id !== id));
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error deleting food:", error);
       alert(error.response?.data?.message || "Failed to delete food item.");
     }
@@ -371,7 +371,7 @@ export default function AdminDashboard() {
       resetRentalForm();
       setIsAdding(false);
       setEditing(null);
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error handling rental:", error);
       alert(error.response?.data?.message || "Failed to handle rental item.");
     }
@@ -386,7 +386,7 @@ export default function AdminDashboard() {
         }
       );
       setRentalItems(rentalItems.filter((item) => item.id !== id));
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error deleting rental:", error);
       alert(error.response?.data?.message || "Failed to delete rental item.");
     }

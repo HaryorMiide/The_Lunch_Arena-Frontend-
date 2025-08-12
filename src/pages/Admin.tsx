@@ -26,7 +26,7 @@ const Admin = () => {
         setIsAuthenticated(true);
         setError("");
       }
-    } catch (err: any) {
+    } catch (err) {
       setError(
         err.response?.data?.message || "Login failed. Please try again."
       );

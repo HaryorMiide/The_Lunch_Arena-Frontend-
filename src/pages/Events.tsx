@@ -121,7 +121,7 @@ Additional Details: ${formData.details || "None"}
 
 Please contact me to discuss further details.`;
 
-    const whatsappUrl = `https://wa.me/5551234567?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/08026008230?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
@@ -363,7 +363,7 @@ Please contact me to discuss further details.`;
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button variant="outline" className="flex-1">
-                    Call (555) 123-4567
+                    Call 08026008230
                   </Button>
                   <Button
                     className="flex-1 bg-green-600 hover:bg-green-700"
@@ -371,7 +371,7 @@ Please contact me to discuss further details.`;
                       const message =
                         "Hi, I have questions about your event planning services";
                       window.open(
-                        `https://wa.me/5551234567?text=${encodeURIComponent(
+                        `https://wa.me/08026008230?text=${encodeURIComponent(
                           message
                         )}`,
                         "_blank"

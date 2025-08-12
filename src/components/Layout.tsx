@@ -1,7 +1,16 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  Instagram,
+  Twitter,
+  Facebook,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import { useState } from "react";
 import restaurantLogo from "@/assets/image9.png";
 import footerBg from "@/assets/image7.jpg";
@@ -22,17 +31,20 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     {
       name: "Instagram",
       href: "https://www.instagram.com/theluncharena",
-      icon: "📸",
+      icon: <Instagram className="w-5 h-5" />,
+      hoverColor: "hover:text-pink-500",
     },
     {
       name: "Twitter",
       href: "https://www.twitter.com/theluncharena",
-      icon: "🐦",
+      icon: <Twitter className="w-5 h-5" />,
+      hoverColor: "hover:text-sky-400",
     },
     {
       name: "Facebook",
       href: "https://www.facebook.com/theluncharena",
-      icon: "📘",
+      icon: <Facebook className="w-5 h-5" />,
+      hoverColor: "hover:text-blue-500",
     },
   ];
 
@@ -113,19 +125,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Main Content */}
       <main className="flex-1">{children}</main>
 
-      {/* Footer with background image */}
+      {/* Footer */}
       <footer className="relative mt-16 text-white">
-        {/* Background image */}
         <img
           src={footerBg}
           alt="Footer background"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
-
-        {/* Overlay for readability */}
         <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
 
-        {/* Footer content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -134,6 +142,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 Creating memorable dining experiences and unforgettable events.
               </p>
             </div>
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
               <div className="space-y-2">
@@ -143,21 +152,26 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-sm opacity-90 hover:opacity-100 transition-opacity"
+                    className={`flex items-center gap-2 text-sm opacity-90 hover:opacity-100 transition-all ${item.hoverColor}`}
                   >
                     {item.icon} {item.name}
                   </a>
                 ))}
               </div>
             </div>
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
               <div className="space-y-2 text-sm opacity-90">
-                <p>📞 08026008230</p>
-                <p>📧 theluncharena@gmail.com</p>
-                <p>
-                  📍 Old RADLAG Water Building 1, Lateef Jakande Road Agidingbi
-                  Ikeja
+                <p className="flex items-center gap-2">
+                  <Phone size={16} /> 08026008230
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail size={16} /> theluncharena@gmail.com
+                </p>
+                <p className="flex items-center gap-2">
+                  <MapPin size={16} /> Old RADLAG Water Building 1, Lateef
+                  Jakande Road Agidingbi Ikeja
                 </p>
                 <Link
                   to="/admin"
