@@ -62,7 +62,7 @@ const Rentals = () => {
         setRentalItems([]);
         setError("Invalid data received from server.");
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("Fetch error:", error.message);
       setRentalItems([]);
       setError(`Failed to load rentals: ${error.message}`);

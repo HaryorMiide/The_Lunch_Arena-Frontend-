@@ -170,7 +170,7 @@ const Contact = () => {
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-foreground">Monday - Sunday</span>
+                    <span className="text-foreground">Monday - Friday</span>
                     <span className="text-muted-foreground">
                       8:00 AM - 6:00 PM
                     </span>

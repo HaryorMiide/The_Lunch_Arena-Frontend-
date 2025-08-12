@@ -76,7 +76,7 @@ const Menu = () => {
         setMenuItems([]);
         setError("Invalid data received from server.");
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("Fetch error:", error.message);
       setMenuItems([]);
       setError(`Failed to load menu: ${error.message}`);
