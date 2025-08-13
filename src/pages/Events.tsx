@@ -121,7 +121,7 @@ Additional Details: ${formData.details || "None"}
 
 Please contact me to discuss further details.`;
 
-    const whatsappUrl = `https://wa.me/08026008230?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/+2348026008230?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
@@ -371,7 +371,7 @@ Please contact me to discuss further details.`;
                       const message =
                         "Hi, I have questions about your event planning services";
                       window.open(
-                        `https://wa.me/08026008230?text=${encodeURIComponent(
+                        `https://wa.me/+2348026008230?text=${encodeURIComponent(
                           message
                         )}`,
                         "_blank"
