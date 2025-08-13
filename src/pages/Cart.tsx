@@ -26,7 +26,7 @@ const CartPage = () => {
     } the following items:\n\n${message}\n\nPlease confirm availability and ${
       cart.some((item) => item.type === "rental") ? "rental" : "order"
     } terms.`;
-    const url = `https://wa.me/1234567890?text=${encodeURIComponent(
+    const url = `https://wa.me/+2348026008230?text=${encodeURIComponent(
       fullMessage
     )}`;
     window.open(url, "_blank");
