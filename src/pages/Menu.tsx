@@ -64,17 +64,13 @@ const Menu = () => {
             image: item.image
               ? `${import.meta.env.VITE_API_BASE_URL}/uploads/${item.image}`
               : "/api/placeholder/400/300",
-            prepTime: item.prep_time || "",
+            prepTime: item.prep_time || item.prepTime || "",
           }));
         console.log("Valid items after filtering:", validItems);
-        setMenuItems(validItems);
-        if (validItems.length === 0) {
-          setError("No valid menu items available.");
-        }
+        setMenuItems(validItems); // No error set for empty validItems
       } else {
         console.error("API returned invalid data structure:", data);
         setMenuItems([]);
-        setError("Invalid data received from server.");
       }
     } catch (error) {
       console.error("Fetch error:", error.message);
@@ -110,6 +106,7 @@ const Menu = () => {
   const handleAddToCart = (item: FoodItem) => {
     addToCart({ ...item, type: "food" });
   };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
